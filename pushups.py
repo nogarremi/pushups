@@ -43,7 +43,7 @@ abbr = {
 
 while True:
     total_days = 0
-    u_input = raw_input('\'day\' or \'total\' (q to exit): ').lower()
+    u_input = input('\'day\' or \'total\' (q to exit): ').lower()
 
     if (u_input == 'q'):
         print('Goodbye')
@@ -52,7 +52,7 @@ while True:
         print('Invalid input. Try again\n')
         continue
     while True:
-        month = raw_input('Enter month: ').lower()
+        month = input('Enter month: ').lower()
 
         if int(month) in range(1,13):
             break
@@ -68,7 +68,7 @@ while True:
         
 
     while True:
-        day = int(raw_input('Enter day: '))
+        day = int(input('Enter day: '))
         
         if day < 1:
             pass
@@ -84,7 +84,7 @@ while True:
         
         print('Invalid Day\n')
 
-    for i in range(1,month):
+    for i in range(1,int(month)):
         total_days += days[i]
 
     total_days += day

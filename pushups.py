@@ -54,17 +54,18 @@ while True:
     while True:
         month = input('Enter month: ').lower()
 
-        if int(month) in range(1,13):
-            break
-        elif month not in abbr.keys() and month not in months.keys():
-            print('Invalid Month\n')
-            continue
-        elif month in abbr.keys():
+
+        if month in abbr.keys():
             month = abbr[month]
             break
         elif month in months.keys():
             month = months[month]
             break
+        elif int(month) in range(1,13):
+            break
+        elif month not in abbr.keys() and month not in months.keys():
+            print('Invalid Month\n')
+            continue
         
 
     while True:
@@ -92,5 +93,5 @@ while True:
     if (u_input == 'day'):
         print('You have ' +  str(total_days) + ' pushups to do today\n')
     elif (u_input == 'total'):
-        pushups = str((total_days * (total_days + 1)) / 2)
-        print('Total push-ups: ' + pushups + '\n')
+        pushups = int((total_days * (total_days + 1)) / 2)
+        print('Total push-ups: ' + str(pushups) + '\n')

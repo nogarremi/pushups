@@ -1,3 +1,4 @@
+import datetime
 days = {
     1:31,
     2:28,
@@ -41,6 +42,10 @@ abbr = {
     'dec':12
     }
 
+year = datetime.datetime.now().year
+if year % 4 == 0 and (year % 100 != 0 or year % 400 == 0):
+    days[2] = 29
+
 while True:
     total_days = 0
     u_input = input('\'day\' or \'total\' (q to exit): ').lower()
@@ -54,7 +59,6 @@ while True:
     while True:
         month = input('Enter month: ').lower()
 
-
         if month in abbr.keys():
             month = abbr[month]
             break
@@ -62,32 +66,24 @@ while True:
             month = months[month]
             break
         elif int(month) in range(1,13):
+            month = int(month)
             break
         elif month not in abbr.keys() and month not in months.keys():
             print('Invalid Month\n')
             continue
-        
 
     while True:
         day = int(input('Enter day: '))
-        
+
         if day < 1:
             pass
-        elif month == 2:
-            if day <= 28:
-                break
-        elif month in [4,6,9,11]:
-            if day <= 30:
-                break
-        else:
-            if day <= 31:
-                break
+        elif day <= days[month]:
+            break
         
         print('Invalid Day\n')
 
     for i in range(1,int(month)):
         total_days += days[i]
-
     total_days += day
 
     if (u_input == 'day'):

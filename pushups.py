@@ -48,16 +48,16 @@ if year % 4 == 0 and (year % 100 != 0 or year % 400 == 0):
 
 while True:
     total_days = 0
-    u_input = input('\'day\' or \'total\' (q to exit): ').lower()
+    u_input = input("'day' or 'total' (q to exit): ").lower()
 
     if (u_input == 'q'):
-        print('Goodbye')
+        print("Goodbye")
         break
     elif u_input not in ['day','total']:
-        print('Invalid input. Try again\n')
+        print("Invalid input. Try again\n")
         continue
     while True:
-        month = input('Enter month: ').lower()
+        month = input("Enter month: ").lower()
 
         if month in abbr.keys():
             month = abbr[month]
@@ -69,25 +69,25 @@ while True:
             month = int(month)
             break
         elif month not in abbr.keys() and month not in months.keys():
-            print('Invalid Month\n')
+            print("Invalid Month\n")
             continue
 
     while True:
-        day = int(input('Enter day: '))
+        day = int(input("Enter day: "))
 
         if day < 1:
             pass
         elif day <= days[month]:
             break
         
-        print('Invalid Day\n')
+        print("Invalid Day\n")
 
     for i in range(1,int(month)):
         total_days += days[i]
     total_days += day
 
     if (u_input == 'day'):
-        print('You have ' +  str(total_days) + ' pushups to do today\n')
+        print("You have ' +  str(total_days) + ' pushups to do today\n")
     elif (u_input == 'total'):
         pushups = int((total_days * (total_days + 1)) / 2)
-        print('Total push-ups: ' + str(pushups) + '\n')
+        print("Total push-ups: " + str(pushups) + "\n")

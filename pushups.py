@@ -87,7 +87,7 @@ while True:
     total_days += day
 
     if (u_input == 'day'):
-        print("You have ' +  str(total_days) + ' pushups to do today\n")
+        print("You have " +  str(total_days) + " pushups to do today\n")
     elif (u_input == 'total'):
         pushups = int((total_days * (total_days + 1)) / 2)
         print("Total push-ups: " + str(pushups) + "\n")
